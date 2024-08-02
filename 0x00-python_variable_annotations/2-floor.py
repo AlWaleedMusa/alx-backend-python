@@ -2,7 +2,7 @@
 '''
     Basic annotations between float and int.
 '''
-
+import math
 
 def floor(n: float) -> int:
     """
@@ -15,4 +15,4 @@ def floor(n: float) -> int:
         int: The result of flooring n.
     """
 
-    return float.__floor__(n)
+    return math.floor(n)
