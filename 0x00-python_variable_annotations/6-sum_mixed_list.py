@@ -2,10 +2,10 @@
 """
     Basic annotation 
 """
-from typing import List
+from typing import List, Union
 # Write a type-annotated function sum_mixed_list which takes a list mxd_lst of integers and floats and returns their sum as a float.
 
-def sum_mixed_list(mxd_lst: List[int, float]) -> float:
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """
     returns the sum of elm in a list as a float.
 
@@ -15,4 +15,4 @@ def sum_mixed_list(mxd_lst: List[int, float]) -> float:
     Returns:
         float: sum of elem in the list.
     """
-    return sum(mxd_lst)
+    return float(sum(mxd_lst))
