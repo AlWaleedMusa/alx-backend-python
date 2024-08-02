@@ -2,9 +2,10 @@
 '''
     Basic annotations in a list.
 '''
+from typing import List
 
 
-def sum_list(input_list: list[float]) -> float:
+def sum_list(input_list: List[float]) -> float:
     """
     returns the sum of elm in a list as a float.
 
