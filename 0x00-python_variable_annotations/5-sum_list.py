@@ -4,7 +4,7 @@
 '''
 
 
-def sum_list(input_list: list) -> float:
+def sum_list(input_list: list[float]) -> float:
     """
     returns the sum of elm in a list as a float.
 
@@ -15,8 +15,4 @@ def sum_list(input_list: list) -> float:
         float: sum of elem in the list.
     """
 
-    sum = 0
-    for num in input_list:
-        sum += num
-
-    return sum
+    return sum(input_list)
