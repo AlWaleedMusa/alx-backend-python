@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""A basic asyncio code"""
 
 import asyncio
 import random
