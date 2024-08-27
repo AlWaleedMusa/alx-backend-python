@@ -31,7 +31,8 @@ class TestAccessNestedMap(unittest.TestCase):
         Args:
             nested_map (Dict): The nested dictionary to access.
             path (Tuple[str]): The sequence of keys to access the nested value.
-            expected (Union[int, Dict]): The expected value from the nested map.
+            expected (Union[int, Dict]):
+            The expected value from the nested map.
 
         Returns:
             None
@@ -72,13 +73,15 @@ class TestGetJson(unittest.TestCase):
             ("http://holberton.io", {"payload": False}),
         ]
     )
-    def test_get_json(self, test_url: str, test_payload: Dict[str, bool]) -> None:
+    def test_get_json(self, test_url: str,
+                      test_payload: Dict[str, bool]) -> None:
         """
         Test get_json returns the correct JSON payload.
 
         Args:
             test_url (str): The URL to send the GET request to.
-            test_payload (Dict[str, bool]): The expected JSON payload from the response.
+            test_payload (Dict[str, bool]):
+            The expected JSON payload from the response.
 
         Returns:
             None

@@ -33,7 +33,8 @@ class TestGithubOrgClient(unittest.TestCase):
         """
         git_client = GithubOrgClient(org)
         self.assertEqual(git_client.org, get_json_mock.return_value)
-        get_json_mock.assert_called_once_with(git_client.ORG_URL.format(org=org))
+        get_json_mock.\
+            assert_called_once_with(git_client.ORG_URL.format(org=org))
 
     def test_public_repos_url(self) -> None:
         """
@@ -42,13 +43,15 @@ class TestGithubOrgClient(unittest.TestCase):
         Returns:
             None
         """
-        config = {"return_value.repos_url": "https://api.github.com/orgs/alx/repos"}
+        config = \
+            {"return_value.repos_url": "https://api.github.com/orgs/alx/repos"}
         with patch(
             "client.GithubOrgClient.org", new_callable=PropertyMock, **config
         ) as mock_org:
             test_client = GithubOrgClient("alx")
             self.assertEqual(
-                test_client._public_repos_url, mock_org.return_value["repos_url"]
+                test_client._public_repos_url,
+                mock_org.return_value["repos_url"]
             )
 
     @patch("client.get_json")
@@ -67,7 +70,8 @@ class TestGithubOrgClient(unittest.TestCase):
             {"name": "dagger", "license": {"key": "apache-2.0"}},
             {"name": "dot-net", "license": {"key": "bsl-1.0"}},
         ]
-        prop_value = {"return_value": "https://api.github.com/orgs/google/repos"}
+        prop_value = \
+            {"return_value": "https://api.github.com/orgs/google/repos"}
         with patch(
             "client.GithubOrgClient._public_repos_url",
             new_callable=PropertyMock,
@@ -86,7 +90,10 @@ class TestGithubOrgClient(unittest.TestCase):
             ({"license": {"key": "other_license"}}, "my_license", False),
         ]
     )
-    def test_has_license(self, license: Dict, key: str, expected: bool) -> None:
+    def test_has_license(self,
+                         license: Dict,
+                         key: str,
+                         expected: bool) -> None:
         """
         Test the `has_license` method of the GithubOrgClient class.
 
@@ -102,7 +109,13 @@ class TestGithubOrgClient(unittest.TestCase):
 
 
 @parameterized_class(
-    ("org_payload", "repos_payload", "expected_repos", "apache2_repos"), TEST_PAYLOAD
+    (
+        "org_payload",
+        "repos_payload",
+        "expected_repos",
+        "apache2_repos"
+    ),
+    TEST_PAYLOAD
 )
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     """
@@ -152,7 +165,8 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
             None
         """
         test_client = GithubOrgClient("google/repos")
-        self.assertEqual(self.expected_repos, test_client.public_repos(license=None))
+        self.assertEqual(self.expected_repos,
+                         test_client.public_repos(license=None))
 
     def test_public_repos_with_license(self) -> None:
         """
